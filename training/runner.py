@@ -5,7 +5,7 @@
 
 import argparse
 from dataclasses import dataclass
-
+import torch
 from cli import shared_args
 from foundations.runner import Runner
 import models.registry
@@ -32,9 +32,9 @@ class TrainingRunner(Runner):
 
     @staticmethod
     def create_from_args(args: argparse.Namespace) -> 'TrainingRunner':
-        self.seed(args.seed)
-        if (self.verbose and get_platform().is_primary_process):
-            print(f"Setting seed: {args.seed}")
+        super(TrainingRunner, TrainingRunner).seed(args.seed)
+        print(torch.randn(3))
+        print(torch.initial_seed())
         return TrainingRunner(args.replicate, TrainingDesc.create_from_args(args),
                               not args.quiet, not args.evaluate_only_at_end)
 

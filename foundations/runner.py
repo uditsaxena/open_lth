@@ -43,8 +43,8 @@ class Runner(abc.ABC):
         """Run the job."""
 
         pass
-
-    def seed(self, seed=42):
+    @staticmethod
+    def seed(seed):
         torch.manual_seed(seed)
         # if you are using GPU
         torch.cuda.manual_seed(seed)

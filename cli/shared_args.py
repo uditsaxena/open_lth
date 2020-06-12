@@ -18,7 +18,7 @@ class JobArgs(Hparams):
     default_hparams: str = None
     quiet: bool = False
     evaluate_only_at_end: bool = False
-    seed: int = 42
+    seed: int = None 
 
     _name: str = 'High-Level Arguments'
     _description: str = 'Arguments that determine how the job is run and where it is stored.'
