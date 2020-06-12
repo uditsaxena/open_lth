@@ -5,6 +5,7 @@
 
 import abc
 import argparse
+import torch
 
 
 class Runner(abc.ABC):
@@ -42,3 +43,12 @@ class Runner(abc.ABC):
         """Run the job."""
 
         pass
+
+    def seed(self, seed=42):
+        torch.manual_seed(seed)
+        # if you are using GPU
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+
+        torch.backends.cudnn.benchmark = False
+        torch.backends.cudnn.deterministic = True

@@ -18,6 +18,7 @@ class JobArgs(Hparams):
     default_hparams: str = None
     quiet: bool = False
     evaluate_only_at_end: bool = False
+    seed: int = 42
 
     _name: str = 'High-Level Arguments'
     _description: str = 'Arguments that determine how the job is run and where it is stored.'
@@ -26,6 +27,7 @@ class JobArgs(Hparams):
     _default_hparams: str = 'Populate all arguments with the default hyperparameters for this model.'
     _quiet: str = 'Suppress output logging about the training status.'
     _evaluate_only_at_end: str = 'Run the test set only before and after training. Otherwise, will run every epoch.'
+    _seed: str = 'The seed for this run of the experiment'
 
 
 def maybe_get_default_hparams():
