@@ -44,7 +44,7 @@ class Model(base.Model):
 
     @staticmethod
     def is_valid_model_name(model_name):
-        return model_name.startswith('mnist_lenet_5') and len(model_name.split('_')) > 2
+        return model_name.startswith('lenet5_mnist') and len(model_name.split('_')) >= 2
 
     @staticmethod
     def get_model_from_name(model_name, initializer, outputs=None):
@@ -73,7 +73,7 @@ class Model(base.Model):
     @staticmethod
     def default_hparams():
         model_hparams = hparams.ModelHparams(
-            model_name='mnist_lenet_5',
+            model_name='lenet5_mnist',
             model_init='kaiming_normal',
             batchnorm_init='uniform'
         )
