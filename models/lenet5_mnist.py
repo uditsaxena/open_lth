@@ -1,6 +1,6 @@
 import torch.nn as nn
 import torch.nn.functional as F
-
+import torch
 from foundations import hparams
 from lottery.desc import LotteryDesc
 from models import base
